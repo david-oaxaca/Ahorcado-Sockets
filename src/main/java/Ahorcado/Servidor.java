@@ -14,6 +14,7 @@ import java.net.ServerSocket;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
+import java.util.Random;
 
 /**
  *
@@ -25,9 +26,10 @@ public class Servidor {
     
         int puerto= 1234;
         
-        String [] facil={"casa", "mama", "oso", "coco", "perro"};
-        String [] intermedio={"xochimilco", "ferrocarril", "escuela", "burrito", "servidor"};
-        String [] dificil={"erase una vez", "ya hay practica", "caminando por la calle", "se hizo el intento", "se acaba el tiempo"};
+        String [] facil={"casa", "mama", "oso", "coco", "perro", "gato"};
+        String [] intermedio={"xochimilco", "ferrocarril", "escuela", "burrito", "servidor", "computadora"};
+        String [] dificil={"erase una vez", "ya hay practica", "caminando por la calle", 
+                            "se hizo el intento", "se acaba el tiempo", "me voy a dormir"};
 
         
         try{
@@ -51,17 +53,17 @@ public class Servidor {
             String palabra = "";
             switch(dificultad){
                 case 1:
-                    palabra = facil[(int)(Math.random() * (5 - 0 + 1) + 0)];
+                    palabra = facil[new Random().nextInt(6)];
                     break;
                 case 2:
-                    palabra = intermedio[(int)(Math.random() * (5 - 0 + 1) + 0)];
+                    palabra = intermedio[new Random().nextInt(6)];
                     break;
                 case 3:
-                    palabra = dificil[(int)(Math.random() * (5 - 0 + 1) + 0)];
+                    palabra = dificil[new Random().nextInt(6)];
                     break;    
                 default:
                     System.err.println("Se selecciono una dificultad no valida, asi que se enviara el modo facil");
-                    palabra = facil[(int)(Math.random() * (5 - 0 + 1) + 0)];
+                    palabra = facil[new Random().nextInt(7)];
                     break;
             }
             
