@@ -106,8 +106,8 @@ public class Cliente {
             conexion_escritura.println(puntuacion);
             conexion_escritura.flush();
             
-            conexion_escritura.close();
             conexion_lectura.close();
+            conexion_escritura.close();
             cl.close();
             
         }catch(Exception e) {
@@ -119,7 +119,12 @@ public class Cliente {
         int tamanio= palabra.length();
         String aux = "";
         for(int i= 0; i < tamanio; i++) {
-            aux += "-";
+            if(palabra.charAt(i) == ' '){
+                aux += " ";
+            }else{
+                aux += "-";
+            }
+            
         }
         System.out.println("");
         return aux;
